@@ -9,7 +9,7 @@ App.controller('docController',
                 .then(
                     function (response) {
                         alert("file uploaded successfully.");
-                        $http.get("http://localhost:8083/doc/").success(
+                        $http.get("/doc/").success(
                             function(response) {
                                 $rootScope.docList = response;
                             });
@@ -43,7 +43,7 @@ App.directive('fileModel', [ '$parse', function($parse) {
 } ]);
 
 App.run(function($rootScope, $http) {
-    $http.get("http://localhost:8083/doc/").success(
+    $http.get("/doc/").success(
         function(response) {
             $rootScope.docList = response;
         });

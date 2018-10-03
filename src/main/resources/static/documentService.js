@@ -14,8 +14,8 @@ App.factory('docService', ['$http', '$q', 'urls', function ($http, $q, urls) {
                 var deferred = $q.defer();
                 var formData = new FormData();
                 formData.append('file', file);
-
-                $http.post(urls.DOC_URL+'upload', formData,{
+				var url = "/doc/upload";
+                $http.post(url, formData,{
                     transformRequest : angular.identity,
                     headers : {
                         'Content-Type' : undefined
@@ -34,7 +34,8 @@ App.factory('docService', ['$http', '$q', 'urls', function ($http, $q, urls) {
 
             function findDoc(docId) {
                 var deferred = $q.defer();
-                $http.get(urls.DOC_URL + '/'+docId)
+				var url = "/doc";
+                $http.get(url + '/'+docId)
                     .then(
                         function (response) {
                             deferred.resolve(response.data);

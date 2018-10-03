@@ -53,7 +53,7 @@ public class DocumentController {
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_FORM_URLENCODED);
 		try {
-			System.out.println("DocumentController.handleFileUpload() Bipin before start");
+			System.out.println("DocumentController.handleFileUpload() Bipin before start "+file.getOriginalFilename());
 
 			MultiValueMap<String, String> map = new LinkedMultiValueMap<String, String>();
 			map.add("eventname", "EVENT_FILE_UPLOAD_BEGINS");
